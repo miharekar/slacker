@@ -13,12 +13,20 @@ class Slack
 
   def toggle_snooze
     if snoozed?
-      end_snooze!
-      set_status!("status_text": quote, "status_emoji": ":coffee:")
+      dnd_off
     else
-      set_snooze!
-      set_status!(status_text: "In a meeting", status_emoji: ":phone:")
+      dnd_on
     end
+  end
+
+  def dnd_off
+    end_snooze!
+    set_status!("status_text": quote, "status_emoji": ":coffee:")
+  end
+
+  def dnd_on
+    set_snooze!
+    set_status!(status_text: "In a meeting", status_emoji: ":phone:")
   end
 
   def status_text
@@ -31,7 +39,7 @@ class Slack
     JSON.parse(body)["snooze_enabled"].to_s == "true"
   end
 
-  private def set_snooze!(duration = "30")
+  private def set_snooze!(duration = "60")
     get("dnd.setSnooze", {"num_minutes" => duration})
   end
 
@@ -54,7 +62,8 @@ class Slack
   private def post(endpoint, params = Hash(String, String).new)
     params["token"] = token
     url = BASE + endpoint
-    HTTP::Client.post_form(url, form: params)
+    # HTTP::Client.post(url, form: params) # Crystal 0.24.2
+    HTTP::Client.post_form(url, form: params) # Crystal 0.23.1
   end
 
   private def quote

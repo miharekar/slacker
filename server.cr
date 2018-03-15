@@ -14,4 +14,17 @@ post "/" do |env|
   env.redirect("/")
 end
 
-Kemal.run
+get "/api/status" do
+  slack = Slack.new
+  slack.snoozed? ? "1" : "0"
+end
+
+get "/api/on" do
+  Slack.new.dnd_on
+end
+
+get "/api/off" do
+  Slack.new.dnd_off
+end
+
+Kemal.run(6789)
