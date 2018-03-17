@@ -62,8 +62,7 @@ class Slack
   private def post(endpoint, params = Hash(String, String).new)
     params["token"] = token
     url = BASE + endpoint
-    HTTP::Client.post(url, form: params) # Crystal >0.24.0
-    # HTTP::Client.post_form(url, form: params) # Crystal <0.24.0
+    HTTP::Client.post(url, form: params)
   end
 
   private def quote

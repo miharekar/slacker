@@ -17,7 +17,7 @@ slack:
 
 You'll also need to install [Crystal](https://crystal-lang.org/). It's trivial to do on a [modern computer](https://crystal-lang.org/docs/installation/).
 
-On a Raspberry Pi you have to install a semi-official older build via [Portalier](http://public.portalier.com/raspbian/).
+On a Raspberry Pi you have to install a semi-official build via [Portalier](http://public.portalier.com/raspbian/).
 
 
 ## Usage
@@ -30,12 +30,10 @@ On a Raspberry Pi you have to install a semi-official older build via [Portalier
 
 ### On a Raspberry Pi
 
-1. Find all occurrences of `# Crystal <0.24.0` and uncomment those lines
-2. Find all occurrences of `# Crystal >0.24.0` and comment those lines
-3. `shards install`
-4. `crystal build -p server.cr`
-5. `./server`
-6. http://raspberrypi.local:6789/
+1. `shards install`
+2. `crystal build -p server.cr`
+3. `./server`
+4. http://raspberrypi.local:6789/
 
 | Normal                                           | Snoozed                                           |
 |--------------------------------------------------|---------------------------------------------------|

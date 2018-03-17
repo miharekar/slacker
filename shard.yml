@@ -11,8 +11,7 @@ targets:
 dependencies:
   kemal:
     github: kemalcr/kemal
-    # version: 0.21.0 # Crystal <0.24.0
 
-crystal: 0.23.1
+crystal: 0.24.2
 
 license: MIT
