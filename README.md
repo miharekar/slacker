@@ -37,6 +37,11 @@ On a Raspberry Pi you have to install a semi-official older build via [Portalier
 5. `./server`
 6. http://raspberrypi.local:6789/
 
+| Normal                                           | Snoozed                                           |
+|--------------------------------------------------|---------------------------------------------------|
+| ![Normal Slack](https://i.imgur.com/CtRjI8v.png) | ![Snoozed Slack](https://i.imgur.com/NjYs69D.png) |
+
+
 ## Usage with Homebridge
 
 You'll need:
