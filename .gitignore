@@ -2,5 +2,7 @@
 /lib/
 /bin/
 /.shards/
+*.dwarf
 
+server
 secrets.yml
