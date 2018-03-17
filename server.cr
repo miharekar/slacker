@@ -3,10 +3,10 @@ require "kemal"
 
 get "/" do
   slack = Slack.new
-  snooze = slack.snoozed? ? "Unsnooze" : "Snooze"
+  snoozed = slack.snoozed?
   status = slack.status_text
 
-  render "views/index.ecr"
+  render "views/index.ecr", "views/layout.ecr"
 end
 
 post "/" do |env|
