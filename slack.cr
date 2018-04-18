@@ -39,6 +39,11 @@ class Slack
     set_status!(status_text: "In a meeting", status_emoji: ":phone:")
   end
 
+  def status_emoji
+    body = get("users.profile.get").body
+    JSON.parse(body)["profile"]["status_emoji"]
+  end
+
   def status_text
     body = get("users.profile.get").body
     JSON.parse(body)["profile"]["status_text"]

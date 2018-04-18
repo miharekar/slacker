@@ -37,8 +37,18 @@ get "/api/pair" do
   Slack.new.lets_pair
 end
 
+get "/api/pairing" do
+  slack = Slack.new
+  slack.status_emoji == ":rubberduck:" ? "1" : "0"
+end
+
 get "/api/run" do
   Slack.new.gonna_run
+end
+
+get "/api/running" do
+  slack = Slack.new
+  slack.status_emoji == ":runner:" ? "1" : "0"
 end
 
 Kemal.run(6789)
