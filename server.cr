@@ -33,4 +33,12 @@ get "/api/off" do
   Slack.new.dnd_off
 end
 
+get "/api/pair" do
+  Slack.new.lets_pair
+end
+
+get "/api/run" do
+  Slack.new.gonna_run
+end
+
 Kemal.run(6789)
