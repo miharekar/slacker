@@ -10,7 +10,13 @@ get "/" do
 end
 
 post "/" do |env|
-  Slack.new.toggle_snooze
+  if env.params.body.has_key? "snooze"
+    Slack.new.toggle_snooze
+  elsif env.params.body.has_key? "pair"
+    Slack.new.lets_pair
+  elsif env.params.body.has_key? "run"
+    Slack.new.gonna_run
+  end
   env.redirect("/")
 end
 

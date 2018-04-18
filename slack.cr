@@ -19,6 +19,16 @@ class Slack
     end
   end
 
+  def lets_pair
+    end_snooze!
+    set_status!("status_text": "I don't look like a duck, don't swim like a duck, and don't quack like a duck, but I'm a duck.", "status_emoji": ":rubberduck:")
+  end
+
+  def gonna_run
+    end_snooze!
+    set_status!("status_text": "Out running", "status_emoji": ":runner:")
+  end
+
   def dnd_off
     end_snooze!
     set_status!("status_text": quote, "status_emoji": ":coffee:")
